@@ -1,4 +1,4 @@
-package com.initex;
+package com.initex.canoe;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

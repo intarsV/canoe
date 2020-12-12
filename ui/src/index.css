@@ -1,0 +1,240 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.container {
+    max-width: 100% !important;
+}
+
+.menu-side {
+    min-height: 100vh;
+    background-image: linear-gradient(to right, darkgray, transparent);
+    padding-top: 20px;
+}
+
+.info-side {
+    background-image: linear-gradient(to left, darkgray, transparent);
+    padding-top: 20px;
+}
+
+.logo {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+    text-align: right;
+}
+
+.login-input {
+    padding-top: 20px;
+    padding-right: 20px;
+    text-align: right;
+    height: 5px;
+}
+
+.columnAlignCenter {
+    text-align: center;
+}
+
+.columnAlignLeft {
+    text-align: left;
+}
+
+.card-padding {
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.header-padding {
+    padding-left: 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.row-format {
+    align-items: center;
+    margin-bottom: 3px;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+.button {
+    width: 120px;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 40px;
+    font-size: 12px;
+    background: ghostwhite;
+}
+
+.button-small-margin {
+    width: 100px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    height: 25px;
+    font-size: 12px;
+    background: ghostwhite;
+}
+
+.button-small-margin-mobile {
+    width: 70px;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    height: 70px;
+    font-size: 12px;
+    background: ghostwhite;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.button-small-margin:focus {
+    outline: none;
+}
+
+.text-align {
+    text-align: center;
+}
+
+.button-test {
+   /*width:calc(100vw/2);*/
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+   min-width: 65px;
+   max-width: 100px;
+  height: 100%;
+ }
+
+.row-height{
+  height: 65px;
+}
+
+
+.navLinks {
+    /*padding-left: 20px;*/
+    padding-top: 5px;
+    list-style-type: none;
+    font-size: medium;
+    color: dimgrey;
+}
+
+.navLinks:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.label {
+    margin-top: 3px;
+    width: 110px;
+    font-size: 16px;
+}
+
+.input-field {
+    outline: none;
+    width: 200px;
+    height: 23px;
+}
+
+.login-header {
+    margin-right: 10px;
+}
+
+.login-input-field {
+    margin-left: 5px;
+    font-size: 12px;
+    outline: none;
+    width: 100px;
+    height: 23px;
+}
+
+.login-input-field:focus {
+    margin-left: 5px;
+    font-size: 12px;
+    outline: none;
+    width: 100px;
+    height: 23px;
+}
+
+.info-text {
+    font-size: 14px;
+    color: forestgreen;
+}
+
+.error-text {
+    margin-left: 10px;
+    font-size: 14px;
+    color: red;
+}
+
+input[type=text]:focus {
+    outline: none;
+    width: 200px;
+    height: 23px;
+}
+
+select:focus {
+    outline: none;
+    width: 200px;
+    height: 23px;
+}
+
+.input-field-error-state {
+    width: 200px;
+    height: 23px;
+    border: 1px solid red;
+}
+
+.error-field-hide {
+    display: none;
+    font-size: 12px;
+    color: red;
+}
+
+.radio-label {
+    margin-right: 20px;
+}
+
+.error-field-show {
+    margin-left: 10px;
+    display: inline;
+    font-size: 12px;
+    color: red;
+}
+
+.table-format {
+    font-size: 12px;
+    padding-top: 15px;
+    margin-left: 9px;
+    margin-right: 9px;
+    margin-bottom: 15px;
+}
+
+.table-format-large {
+    height: 205px;
+    font-size: 12px;
+    padding-top: 15px;
+    margin-left: 9px;
+    margin-right: 9px;
+    margin-bottom: 15px;
+}
+
+.table-cell-button {
+    background: none !important;
+    border: 0;
+}

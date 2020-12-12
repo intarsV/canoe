@@ -1,4 +1,4 @@
-package com.initex;
+package com.initex.canoe;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
