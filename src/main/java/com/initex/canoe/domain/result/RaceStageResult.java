@@ -16,11 +16,6 @@ public class RaceStageResult {
     private BigDecimal bestH1H2 = new BigDecimal(9999);             //Default 9999=DNS
     private BigDecimal sumH1H2 = new BigDecimal(9999);              //Default 9999=DNS
 
-//    private int rankBestH1H2 = 0;
-//    private boolean bestH1h2Qualified = false;
-//    private int rankSumH1H2 = 0;
-//    private boolean sumH1H2Qualified = false;
-
     public RaceStageResult(EventRegistry eventRegistry, int stageIndex, int boatClassIndex) {
         this.eventRegistry = eventRegistry;
         this.stageIndex = stageIndex;
@@ -98,38 +93,6 @@ public class RaceStageResult {
         this.sumH1H2 = sumH1H2;
     }
 
-//    public int getRankBestH1H2() {
-//        return rankBestH1H2;
-//    }
-//
-//    public void setRankBestH1H2(int rankBestH1H2) {
-//        this.rankBestH1H2 = rankBestH1H2;
-//    }
-//
-//    public boolean isBestH1h2Qualified() {
-//        return bestH1h2Qualified;
-//    }
-//
-//    public void setBestH1h2Qualified(boolean bestH1h2Qualified) {
-//        this.bestH1h2Qualified = bestH1h2Qualified;
-//    }
-//
-//    public int getRankSumH1H2() {
-//        return rankSumH1H2;
-//    }
-//
-//    public void setRankSumH1H2(int rankSumH1H2) {
-//        this.rankSumH1H2 = rankSumH1H2;
-//    }
-//
-//    public boolean isSumH1H2Qualified() {
-//        return sumH1H2Qualified;
-//    }
-//
-//    public void setSumH1H2Qualified(boolean sumH1H2Qualified) {
-//        this.sumH1H2Qualified = sumH1H2Qualified;
-//    }
-
     @Override
     public String toString() {
         return "RaceStageResult{" +
@@ -140,10 +103,6 @@ public class RaceStageResult {
                 ", stage=" + stage +
                 ", bestH1H2=" + bestH1H2 +
                 ", sumH1H2=" + sumH1H2 +
-//                ", rankBestH1H2=" + rankBestH1H2 +
-//                ", bestH1h2Qualified=" + bestH1h2Qualified +
-//                ", rankSumH1H2=" + rankSumH1H2 +
-//                ", sumH1H2Qualified=" + sumH1H2Qualified +
                 '}';
     }
 }

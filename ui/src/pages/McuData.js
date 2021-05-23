@@ -14,7 +14,7 @@ const McuData = () => {
             setInfoMessage({type: '', msg: ''})
             const eventSource = new EventSource('http://localhost:8080/api/v1/mcuData/emitter');
             eventSource.addEventListener("mcuData", (event) => {
-                setMcuData(mcuData => [...mcuData, JSON.parse(event.data)]);
+                setMcuData(oldData => [...oldData, JSON.parse(event.data)]);
             });
             eventSource.onopen = e => console.log('open');
             eventSource.onerror = e => console.log(e);
@@ -31,7 +31,7 @@ const McuData = () => {
             data.subEventId = raceEventData.subEvent;
             data.teamMode = raceEventData.teamMode;
             Api.put('/mcuData/' + data.id, data)
-                .then(response => {
+                .then(() => {
                     let filteredArray = mcuData.filter(item => item.id !== data.id);
                     setMcuData(filteredArray);
                     const searchParams = {
@@ -136,9 +136,9 @@ const McuData = () => {
                     ]}
                 />
             </Row>
-            {/*<span className={infoMessage.type === 'error' ? "col-sm error-text" : "col-sm info-text"}>*/}
-            {/*    {infoMessage.msg}*/}
-            {/*</span>*/}
+            <span className={infoMessage.type === 'error' ? "col-sm error-text" : "col-sm info-text"}>
+                {infoMessage.msg}
+            </span>
         </div>
     )
 };

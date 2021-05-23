@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {getList, processErrorMessage, processResponse, setFieldValues} from "../common/Utils";
+import {getBibValue, getList, processErrorMessage, processResponse, setFieldValues} from "../common/Utils";
 import {
     number_regex_free,
     text_regex,
@@ -74,7 +74,10 @@ const EventRegistry = () => {
         Api.post('/eventRegistry', newEventRegistry)
             .then(response => {
                 setFieldValues({
-                    competitorName: '', competitorName2: '', competitorName3: '', bib: getBibValue(newEventRegistry.bib)
+                    competitorName: '',
+                    competitorName2: '',
+                    competitorName3: '',
+                    bib: getBibValue(reverse, newEventRegistry.bib)
                 }, setValue);
                 setEventRegistry([...eventRegistry, response.data]);
                 setInfoMessage({type: 'info', msg: "Registered!"});
@@ -82,10 +85,6 @@ const EventRegistry = () => {
             .catch((error) => {
                 processErrorMessage(error, setInfoMessage);
             })
-    };
-
-    const getBibValue = (bib) => {
-        return reverse ? parseInt(bib) - 1 : parseInt(bib) + 1
     };
 
     const createNewEventRegistry = (data) => {
@@ -138,15 +137,16 @@ const EventRegistry = () => {
                                  register={register} errors={errors}/>
                     <SelectField id={'competitorName'} label={'Competitor'} pattern={text_regex} list={competitor}
                                  register={register} errors={errors}/>
-                    {raceMode !== 'single' &&
-                    <SelectFieldTeam id={'competitorName2'} label={'Competitor 2'} pattern={text_regex}
-                                     list={competitor}
-                                     valueField={'competitorName'} register={register} errors={errors}/>
-                    }
-                    {raceMode !== 'single' &&
-                    <SelectFieldTeam id={'competitorName3'} label={'Competitor 3'} pattern={text_regex}
-                                     list={competitor}
-                                     valueField={'competitorName'} register={register} errors={errors}/>
+                    {raceMode === 'team' &&
+                    <>
+                        <SelectFieldTeam id={'competitorName2'} label={'Competitor 2'} pattern={text_regex}
+                                         list={competitor}
+                                         valueField={'competitorName'} register={register} errors={errors}/>
+
+                        <SelectFieldTeam id={'competitorName3'} label={'Competitor 3'} pattern={text_regex}
+                                         list={competitor}
+                                         valueField={'competitorName'} register={register} errors={errors}/>
+                    </>
                     }
                     <InputField id={'bib'} label={'Bib'} pattern={number_regex_free}
                                 register={register} errors={errors}/>
@@ -194,8 +194,7 @@ const EventRegistry = () => {
             </div>
             <ReactTable
                 minRows={1} noDataText={'No data found'} showPagination={false} data={eventRegistry}
-                className={eventRegistry.length < 10 ? '-striped -highlight table-format'
-                    : '-striped -highlight table-format-large'}
+                className="-striped -highlight table-format-large"
                 getTdProps={(state, rowInfo) => {
                     return {
                         onClick: () => {
