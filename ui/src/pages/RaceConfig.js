@@ -97,7 +97,8 @@ const RaceConfig = () => {
     };
 
     return (
-        <div>
+        <div className="col-md-10 col-sm-12 col-lg-6 top">
+            <div className="marginLeftRight text-right">
             <form onSubmit={handleSubmit(addRaceConfig)} onChange={() => setInfoMessage({type: '', msg: ''})}>
                 <SelectFieldExtra id={'eventName'} label={'Event'} pattern={text_regex_number} list={event}
                                   setCurrentEvent={setCurrentEvent} register={register} errors={errors}/>
@@ -109,11 +110,12 @@ const RaceConfig = () => {
                             register={register} errors={errors}/>
                 <InputField id={'semiFinal'} label={'SemiFinal'} pattern={number_regex_free}
                             register={register} errors={errors}/>
-                <button className="button" type="submit">Add configuration</button>
                 <span className={infoMessage.type === 'error' ? "col-sm error-text" : "col-sm info-text"}>
                     {infoMessage.msg}
                 </span>
+                <button className="button" type="submit">Add configuration</button>
             </form>
+            </div>
             <ReactTable
                 minRows={1} noDataText={'No data found'} showPagination={false} data={raceConfig}
                 className={event.length < 10 ? '-striped -highlight table-format'

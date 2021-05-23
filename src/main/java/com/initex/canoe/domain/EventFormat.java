@@ -7,11 +7,11 @@ import javax.persistence.*;
 public class EventFormat {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "event_format")
+    @Column(name = "EVENT_FORMAT")
     private String formatName;
 
     public Long getId() {

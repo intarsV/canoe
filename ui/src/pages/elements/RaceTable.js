@@ -16,21 +16,21 @@ const RaceTable = ({setInfoMessage, editMode}) => {
                 accessor: "id"
             },
             {
-                width: 35,
+                width: 30,
                 className: "columnAlignCenter",
                 id: 'bib',
                 Header: "Bib",
                 accessor: 'eventRegistry.bib',
             },
             {
-                width: 70,
+                width: 60,
                 className: "columnAlignCenter",
                 id: 'startTime',
                 Header: "Start",
                 accessor: 'startTime',
             },
             {
-                width: 70,
+                width: 60,
                 className: "columnAlignCenter",
                 id: 'finishTime',
                 Header: "Finish",
@@ -74,7 +74,7 @@ const RaceTable = ({setInfoMessage, editMode}) => {
                 id: 'g' + i,
                 Header: "G" + i,
                 accessor: 'g' + i,
-                width: 37,
+                width: 36,
                 Cell: renderEditable
             })
         } else {
@@ -83,7 +83,7 @@ const RaceTable = ({setInfoMessage, editMode}) => {
                 id: 'g' + i,
                 Header: "G" + i,
                 accessor: 'g' + i,
-                width: 37,
+                width: 36,
                 Cell: cellInfo => (
                     <button className={'table-cell-button'}
                             onClick={() => changeValue(cellInfo)}>{cellInfo.value}</button>

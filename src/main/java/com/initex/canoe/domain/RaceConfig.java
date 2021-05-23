@@ -1,33 +1,31 @@
 package com.initex.canoe.domain;
 
 import javax.persistence.*;
-import java.util.HashMap;
-import java.util.Map;
 
 @Entity
 @Table(name = "RACE_CONFIG")
 public class RaceConfig {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "event_id")
+    @JoinColumn(name = "EVENT_ID")
     private Event event;
 
     @ManyToOne
-    @JoinColumn(name = "boat_class_id")
+    @JoinColumn(name = "BOAT_CLASS_ID")
     private BoatClass boatClass;
 
-    @Column(name = "heat_1")
+    @Column(name = "HEAT_1")
     private int heat1;
 
-    @Column(name = "heat_2")
+    @Column(name = "HEAT_2")
     private int heat2;
 
-    @Column(name = "semi_final")
+    @Column(name = "SEMI_FINAL")
     private int semiFinal;
 
     public int[] getConfigList() {

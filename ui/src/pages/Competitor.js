@@ -72,33 +72,35 @@ const Competitor = () => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(addCompetitor)} onChange={() => setInfoMessage({type: '', msg: ''})}>
-                <InputField id={'competitorName'} label={'Name'} pattern={text_regex}
-                            register={register} errors={errors}/>
-                <InputField id={'birthYear'} label={'Year'} pattern={number_regex}
-                            register={register} errors={errors}/>
-                <InputField id={'club'} label={'Club'} pattern={text_regex}
-                            register={register} errors={errors} setInfoMessage={setInfoMessage}/>
-                <SelectField id={'country'} label={'Country'} list={countryList} pattern={text_3_upper_char}
-                             register={register} errors={errors}/>
-                {currentId &&
-                <div className="row row-format">
-                    <label htmlFor="disabled">remove : </label>
-                    <input name="disabled" type="checkbox" autoComplete='off'
-                           ref={register()}
-                           onClick={() => {
-                               setInfoMessage({type: '', msg: ''});
-                           }}/>
-                </div>
-                }
-                <button className="button" type="submit">Add competitor</button>
-                <span className={infoMessage.type === 'error' ? "col-sm error-text" : "col-sm info-text"}>
+        <div className="col-md-10 col-sm-12 col-lg-6 top">
+            <div className="marginLeftRight text-right">
+                <form onSubmit={handleSubmit(addCompetitor)} onChange={() => setInfoMessage({type: '', msg: ''})}>
+                    <InputField id={'competitorName'} label={'Name'} pattern={text_regex}
+                                register={register} errors={errors}/>
+                    <InputField id={'birthYear'} label={'Year'} pattern={number_regex}
+                                register={register} errors={errors}/>
+                    <InputField id={'club'} label={'Club'} pattern={text_regex}
+                                register={register} errors={errors} setInfoMessage={setInfoMessage}/>
+                    <SelectField id={'country'} label={'Country'} list={countryList} pattern={text_3_upper_char}
+                                 register={register} errors={errors}/>
+                    {currentId &&
+                    <div className="row row-format">
+                        <label htmlFor="disabled">remove : </label>
+                        <input name="disabled" type="checkbox" autoComplete='off'
+                               ref={register()}
+                               onClick={() => {
+                                   setInfoMessage({type: '', msg: ''});
+                               }}/>
+                    </div>
+                    }
+                    <span className={infoMessage.type === 'error' ? "col-sm error-text" : "col-sm info-text"}>
                     {infoMessage.msg}
                 </span>
-            </form>
+                    <button className="button" type="submit">Add competitor</button>
+                </form>
+            </div>
             <ReactTable
-                minRows={1} noDataText={'No data found'} showPagination={false} data={competitor}
+                minRows="1" pageSize="1000" noDataText={'No data found'} showPagination={false} data={competitor}
                 className={competitor.length < 10 ? '-striped -highlight table-format'
                     : '-striped -highlight table-format-large'}
                 getTdProps={(state, rowInfo) => {
@@ -111,6 +113,7 @@ const Competitor = () => {
                 }}
                 columns={[
                     {
+                        width: 200,
                         id: 'competitorName',
                         Header: "Name",
                         accessor: 'competitorName',
@@ -122,6 +125,7 @@ const Competitor = () => {
                         accessor: 'birthYear',
                     },
                     {
+                        width: 200,
                         id: 'club',
                         Header: "Club",
                         accessor: 'club',

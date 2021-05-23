@@ -7,15 +7,15 @@ import javax.persistence.*;
 public class SubEvent {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "event_format_id")
+    @JoinColumn(name = "EVENT_FORMAT_ID")
     private EventFormat eventFormat;
 
-    @Column(name = "sub_event")
+    @Column(name = "SUB_EVENT")
     private String subEvent;
 
     public Long getId() {

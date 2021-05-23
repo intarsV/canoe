@@ -176,11 +176,11 @@ public class ResultsServiceProcessor {
                     .collect(Collectors.toList());
             rankBoatClass(boatClassStage);
             int[] config = getConfigListForCurrentBoatClass(configList, bc);
-            setQualified(config, stageName, boatClassStage);
+            processQualification(config, stageName, boatClassStage);
         }
     }
 
-    private void setQualified(int[] config, String stageName, List<Stage> boatClassStage) {
+    private void processQualification(int[] config, String stageName, List<Stage> boatClassStage) {
         for (Stage s : boatClassStage) {
             s.setQualified(isQualified(config, stageName, s));
         }

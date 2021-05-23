@@ -6,26 +6,26 @@ import javax.persistence.*;
 @Table(name = "MCU_DATA")
 public class McuData {
     @Id
-    @Column(name = "id")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "bib")
+    @Column(name = "BIB")
     private int bib;
 
-    @Column(name = "time_stamp")
+    @Column(name = "TIME_STAMP")
     private long timeStamp;
 
-    @Column(name = "unit_id")
+    @Column(name = "UNIT_ID")
     private int unitId;
 
-    @Column(name = "sub_event")
+    @Column(name = "SUB_EVENT")
     private int subEvent;
 
-    @Column(name = "done", columnDefinition = "TINYINT", length = 1)
+    @Column(name = "DONE", columnDefinition = "TINYINT", length = 1)
     private boolean done;
 
-    @Column(name = "disabled", columnDefinition = "TINYINT", length = 1)
+    @Column(name = "DISABLED", columnDefinition = "TINYINT", length = 1)
     private boolean disabled;
 
     public Long getId() {

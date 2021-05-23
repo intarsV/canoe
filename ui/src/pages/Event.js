@@ -29,7 +29,7 @@ const Event = () => {
                 .then(response => {
                     setFieldValues({'id': '', 'eventName': '', 'formatName': '', 'placeDate': ''}, setValue);
                     setEvent([...event, response.data]);
-                    setInfoMessage({type: 'info', msg: "Country added successfully!"});
+                    setInfoMessage({type: 'info', msg: "Event added successfully!"});
                 })
                 .catch((error) => {
                     processErrorMessage(error, setInfoMessage);
@@ -45,7 +45,8 @@ const Event = () => {
     };
 
     return (
-        <div>
+        <div className="col-md-10 col-sm-12 col-lg-8 top">
+            <div className="marginLeftRight text-right">
             <form onSubmit={handleSubmit(addEvent)} onChange={() => setInfoMessage({type: '', msg: ''})}>
                 <InputField id={'eventName'} label={'Event'} pattern={text_regex_number}
                             register={register} errors={errors}/>
@@ -53,11 +54,12 @@ const Event = () => {
                             register={register} errors={errors}/>
                 <SelectField id={'formatName'} label={'Format'} list={eventFormat}
                              register={register} errors={errors}/>
-                <button className="button" type="submit">Add event</button>
                 <span className={infoMessage.type === 'error' ? "col-sm error-text" : "col-sm info-text"}>
                     {infoMessage.msg}
                 </span>
+                <button className="button" type="submit">Add event</button>
             </form>
+            </div>
             <ReactTable
                 minRows={1} noDataText={'No data found'} showPagination={false} data={event}
                 className={event.length < 10 ? '-striped -highlight table-format'
@@ -69,6 +71,7 @@ const Event = () => {
                         accessor: 'eventName',
                     },
                     {
+                        width: 150,
                         id: 'eventFormat',
                         Header: "Format",
                         accessor: 'eventFormat.formatName',

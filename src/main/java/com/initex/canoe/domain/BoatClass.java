@@ -7,11 +7,11 @@ import javax.persistence.*;
 public class BoatClass {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "boat_class")
+    @Column(name = "BOAT_CLASS")
     private String boatClass;
 
 

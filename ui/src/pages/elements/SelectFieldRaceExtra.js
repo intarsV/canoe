@@ -12,8 +12,8 @@ const SelectFieldRaceExtra = ({id, label, list, register, errors}) => {
     }
 
     return (
-        <div className="row row-format">
-            <label className="label" htmlFor={id}>{label}:</label>
+        <div className="span">
+            <label className="marginLeftRight" htmlFor={id}>{label}:</label>
             <select name={id}
                     value={getValue()}
                     className={errors[id] ? "input-field-error-state" : "input-field"}
@@ -31,6 +31,7 @@ const SelectFieldRaceExtra = ({id, label, list, register, errors}) => {
                     <option key={item.id} data-id={item.id}>{item[id]}</option>)
                 }
             </select>
+            <br/>
             {errors[id]?.type === "required" &&
             <span className="col-3 error-text">Required field!</span>}
             {errors[id]?.type === "pattern" &&

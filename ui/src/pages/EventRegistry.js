@@ -4,8 +4,7 @@ import {
     number_regex_free,
     text_regex,
     text_regex_groups,
-    text_regex_number,
-    raceModeOptions
+    text_regex_number
 } from "../common/Constants";
 import ReactTable from "react-table";
 import Api from "../common/Api";
@@ -127,65 +126,72 @@ const EventRegistry = () => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(createNewEventRegistry)} onChange={() => setInfoMessage({type: '', msg: ''})}>
-                <SelectFieldExtra id={'eventName'} label={'Event'} pattern={text_regex_number} list={event}
-                                  setCurrentEvent={setCurrentEvent} register={register} errors={errors}/>
-                <SelectField id={'ageGroup'} label={'Group'} pattern={text_regex_groups} list={ageGroup}
-                             register={register} errors={errors}/>
-                <SelectField id={'boatClass'} label={'BoatClass'} pattern={text_regex_groups} list={boatClass}
-                             register={register} errors={errors}/>
-                <SelectField id={'competitorName'} label={'Competitor'} pattern={text_regex} list={competitor}
-                             register={register} errors={errors}/>
-                {raceMode !== 'single' &&
-                <SelectFieldTeam id={'competitorName2'} label={'Competitor 2'} pattern={text_regex} list={competitor}
-                                 valueField={'competitorName'} register={register} errors={errors}/>
-                }
-                {raceMode !== 'single' &&
-                <SelectFieldTeam id={'competitorName3'} label={'Competitor 3'} pattern={text_regex} list={competitor}
-                                 valueField={'competitorName'} register={register} errors={errors}/>
-                }
-                <div className="row row-format">
-                    <label className="label" htmlFor="raceMode">Race mode: </label>
-                    {raceModeOptions.map((option, i) =>
-                        <div key={i}>
-                            <input type="radio" name="teamMode"
-                                   checked={raceMode === option}
-                                   onChange={() => {
-                                       setInfoMessage({type: '', msg: ''});
-                                       setRaceMode(option);
-                                   }}
-                            />
-                            <label className="radio-label">{option.teamMode}</label>
-                        </div>
-                    )}
-                </div>
-                <InputField id={'bib'} label={'Bib'} pattern={number_regex_free}
-                            register={register} errors={errors}/>
-                <div className="row row-format">
-                    <label className="label" htmlFor="reverse">reverse : </label>
-                    <input name="reverse" type="checkbox" autoComplete='off'
-                           onClick={() => {
-                               setInfoMessage({type: '', msg: ''});
-                               setReverse(true)
-                           }}/>
-                </div>
-                {currentId &&
-                <div className="row row-format">
-                    <label className="label" htmlFor="disabled">remove : </label>
-                    <input name="disabled" type="checkbox" autoComplete='off'
-                           ref={register()}
-                           onClick={() => {
-                               setInfoMessage({type: '', msg: ''});
-                               setReverse(true)
-                           }}/>
-                </div>
-                }
-                <button className="button" type="submit">Register</button>
-                <span className={infoMessage.type === 'error' ? "col-sm error-text" : "col-sm info-text"}>
+        <div className="col-md-10 col-sm-12 col-lg-8 top">
+            <div className="marginLeftRight text-right">
+                <form onSubmit={handleSubmit(createNewEventRegistry)}
+                      onChange={() => setInfoMessage({type: '', msg: ''})}>
+                    <SelectFieldExtra id={'eventName'} label={'Event'} pattern={text_regex_number} list={event}
+                                      setCurrentEvent={setCurrentEvent} register={register} errors={errors}/>
+                    <SelectField id={'ageGroup'} label={'Group'} pattern={text_regex_groups} list={ageGroup}
+                                 register={register} errors={errors}/>
+                    <SelectField id={'boatClass'} label={'BoatClass'} pattern={text_regex_groups} list={boatClass}
+                                 register={register} errors={errors}/>
+                    <SelectField id={'competitorName'} label={'Competitor'} pattern={text_regex} list={competitor}
+                                 register={register} errors={errors}/>
+                    {raceMode !== 'single' &&
+                    <SelectFieldTeam id={'competitorName2'} label={'Competitor 2'} pattern={text_regex}
+                                     list={competitor}
+                                     valueField={'competitorName'} register={register} errors={errors}/>
+                    }
+                    {raceMode !== 'single' &&
+                    <SelectFieldTeam id={'competitorName3'} label={'Competitor 3'} pattern={text_regex}
+                                     list={competitor}
+                                     valueField={'competitorName'} register={register} errors={errors}/>
+                    }
+                    <InputField id={'bib'} label={'Bib'} pattern={number_regex_free}
+                                register={register} errors={errors}/>
+                    <div className="text-right">
+                        <label className="marginLeftRight">Race mode: </label>
+                        <input type="radio" name="teamMode" className=" marginLeft"
+                               checked={raceMode === 'single'}
+                               onChange={() => {
+                                   setInfoMessage({type: '', msg: ''});
+                                   setRaceMode('single');
+                               }}
+                        />
+                        <input type="radio" name="teamMode" className=" marginLeft"
+                               checked={raceMode === 'team'}
+                               onChange={() => {
+                                   setInfoMessage({type: '', msg: ''});
+                                   setRaceMode('team');
+                               }}
+                        />
+                    </div>
+                    <div className="text-right">
+                        <label className="marginLeftRight" htmlFor="reverse">reverse : </label>
+                        <input name="reverse" type="checkbox" autoComplete='off' className=" marginLeft"
+                               onClick={() => {
+                                   setInfoMessage({type: '', msg: ''});
+                                   setReverse(true)
+                               }}/>
+                    </div>
+                    {currentId &&
+                    <div className="row row-format">
+                        <label className="marginLeftRight" htmlFor="disabled">remove : </label>
+                        <input name="disabled" type="checkbox" autoComplete='off'
+                               ref={register()}
+                               onClick={() => {
+                                   setInfoMessage({type: '', msg: ''});
+                                   setReverse(true)
+                               }}/>
+                    </div>
+                    }
+                    <span className={infoMessage.type === 'error' ? "col-sm error-text" : "col-sm info-text"}>
                     {infoMessage.msg}
                 </span>
-            </form>
+                    <button className="button" type="submit">Register</button>
+                </form>
+            </div>
             <ReactTable
                 minRows={1} noDataText={'No data found'} showPagination={false} data={eventRegistry}
                 className={eventRegistry.length < 10 ? '-striped -highlight table-format'

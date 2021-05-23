@@ -12,15 +12,8 @@ code {
     monospace;
 }
 
-
 .container {
     max-width: 100% !important;
-}
-
-.menu-side {
-    min-height: 100vh;
-    background-image: linear-gradient(to right, darkgray, transparent);
-    padding-top: 20px;
 }
 
 .info-side {
@@ -46,6 +39,10 @@ code {
     text-align: center;
 }
 
+.colBottom {
+    align-self: flex-end;
+}
+
 .columnAlignLeft {
     text-align: left;
 }
@@ -69,14 +66,38 @@ code {
     margin-right: 10px !important;
 }
 
-.button {
-    width: 120px;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.menu-side {
+    min-height: 100vh;
+    background-image: linear-gradient(to right, darkgray, transparent);
+    padding-top: 20px;
+}
+
+.background {
+    margin-bottom: 15px;
+    background-image: linear-gradient(to right, darkgray, transparent);
+}
+
+.menuButton {
+    width: 100px;
+    margin: 10px;
     height: 40px;
     font-size: 12px;
     background: ghostwhite;
+}
+
+.logo-text {
+    font-style: italic;
+}
+
+.button {
+    width: 120px;
+    /*margin-left: 200px;*/
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px;*/
+    height: 23px;
+    font-size: 12px;
+    background: ghostwhite;
+    margin-bottom: 15px;
 }
 
 .button-small-margin {
@@ -112,17 +133,17 @@ code {
 }
 
 .button-test {
-   /*width:calc(100vw/2);*/
+    /*width:calc(100vw/2);*/
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
-   min-width: 65px;
-   max-width: 100px;
-  height: 100%;
- }
+    min-width: 65px;
+    max-width: 100px;
+    height: 100%;
+}
 
-.row-height{
-  height: 65px;
+.row-height {
+    height: 65px;
 }
 
 
@@ -139,15 +160,29 @@ code {
     text-decoration: none;
 }
 
-.label {
-    margin-top: 3px;
-    width: 110px;
-    font-size: 16px;
+/*.label {*/
+/*    margin-top: 3px;*/
+/*    width: 100px;*/
+/*    font-size: 16px;*/
+/*}*/
+
+.marginLeftRight {
+    margin-left: 9px;
+    margin-right: 9px;
+}
+
+.marginLeftRight7 {
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.marginLeft{
+    margin-left: 9px;
 }
 
 .input-field {
     outline: none;
-    width: 200px;
+    width: 60%;
     height: 23px;
 }
 
@@ -176,26 +211,39 @@ code {
     color: forestgreen;
 }
 
+.navMenuPage {
+    margin-top: 50%;
+}
+
+.span {
+    line-height: 0.5 !important;
+    margin-bottom: 10px;
+}
+
+.top {
+    padding-top: 60px;
+}
+
 .error-text {
-    margin-left: 10px;
-    font-size: 14px;
+    /*margin-left: 10px;*/
+    font-size: 10px;
     color: red;
 }
 
 input[type=text]:focus {
     outline: none;
-    width: 200px;
+    width: 60%;
     height: 23px;
 }
 
 select:focus {
     outline: none;
-    width: 200px;
+    width: 60%;
     height: 23px;
 }
 
 .input-field-error-state {
-    width: 200px;
+    width: 60%;
     height: 23px;
     border: 1px solid red;
 }
@@ -238,3 +286,4 @@ select:focus {
     background: none !important;
     border: 0;
 }
+

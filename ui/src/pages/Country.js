@@ -33,15 +33,17 @@ const Country = () => {
     };
 
     return (
-        <div>
+        <div className="col-md-6 col-sm-12 col-lg-3 top">
+            <div className="marginLeftRight text-right">
             <form onSubmit={handleSubmit(addCountry)} onChange={() => setInfoMessage({type: '', msg: ''})}>
                 <InputField id={'country'} label={'Country'} pattern={text_3_upper_char}
                             register={register} errors={errors} setInfoMessage={setInfoMessage}/>
-                <button className="button" type="submit">Add country</button>
                 <span className={infoMessage.type === 'error' ? "col-sm error-text" : "col-sm info-text"}>
                     {infoMessage.msg}
                 </span>
+                <button className="button" type="submit">Add country</button>
             </form>
+            </div>
             <ReactTable
                 minRows={1} noDataText={'No data found'} showPagination={false} data={country}
                 className={country.length < 10 ? '-striped -highlight table-format'

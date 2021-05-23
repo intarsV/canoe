@@ -7,110 +7,110 @@ import javax.persistence.*;
 public class Race {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "start_time", columnDefinition = "DOUBLE")
+    @Column(name = "START_TIME", columnDefinition = "DOUBLE")
     private long startTime;
 
-    @Column(name = "finish_time", columnDefinition = "DOUBLE")
+    @Column(name = "FINISH_TIME", columnDefinition = "DOUBLE")
     private long finishTime;
 
-    @Column(name = "g1")
+    @Column(name = "G1")
     private int g1;
 
-    @Column(name = "g2")
+    @Column(name = "G2")
     private int g2;
 
-    @Column(name = "g3")
+    @Column(name = "G3")
     private int g3;
 
-    @Column(name = "g4")
+    @Column(name = "G4")
     private int g4;
 
-    @Column(name = "g5")
+    @Column(name = "G5")
     private int g5;
 
-    @Column(name = "g6")
+    @Column(name = "G6")
     private int g6;
 
-    @Column(name = "g7")
+    @Column(name = "G7")
     private int g7;
 
-    @Column(name = "g8")
+    @Column(name = "G8")
     private int g8;
 
-    @Column(name = "g9")
+    @Column(name = "G9")
     private int g9;
 
-    @Column(name = "g10")
+    @Column(name = "G10")
     private int g10;
 
-    @Column(name = "g11")
+    @Column(name = "G11")
     private int g11;
 
-    @Column(name = "g12")
+    @Column(name = "G12")
     private int g12;
 
-    @Column(name = "g13")
+    @Column(name = "G13")
     private int g13;
 
-    @Column(name = "g14")
+    @Column(name = "G14")
     private int g14;
 
-    @Column(name = "g15")
+    @Column(name = "G15")
     private int g15;
 
-    @Column(name = "g16")
+    @Column(name = "G16")
     private int g16;
 
-    @Column(name = "g17")
+    @Column(name = "G17")
     private int g17;
 
-    @Column(name = "g18")
+    @Column(name = "G18")
     private int g18;
 
-    @Column(name = "g19")
+    @Column(name = "G19")
     private int g19;
 
-    @Column(name = "g20")
+    @Column(name = "G20")
     private int g20;
 
-    @Column(name = "g21")
+    @Column(name = "G21")
     private int g21;
 
-    @Column(name = "g22")
+    @Column(name = "G22")
     private int g22;
 
-    @Column(name = "g23")
+    @Column(name = "G23")
     private int g23;
 
-    @Column(name = "g24")
+    @Column(name = "G24")
     private int g24;
 
     @ManyToOne
-    @JoinColumn(name = "event_registry_id")
+    @JoinColumn(name = "EVENT_REGISTRY_ID")
     private EventRegistry eventRegistry;
 
     @ManyToOne
-    @JoinColumn(name = "event_id")
+    @JoinColumn(name = "EVENT_ID")
     private Event event;
 
     @ManyToOne
-    @JoinColumn(name = "sub_event_id")
+    @JoinColumn(name = "SUB_EVENT_ID")
     private SubEvent subEvent;
 
-    @Column(name = "dsqr", columnDefinition = "TINYINT", length = 1)
+    @Column(name = "DSQR", columnDefinition = "TINYINT", length = 1)
     private boolean dsqr;
 
-    @Column(name = "done", columnDefinition = "TINYINT", length = 1)
+    @Column(name = "DONE", columnDefinition = "TINYINT", length = 1)
     private boolean done;
 
-    @Column(name = "teamMode", columnDefinition = "TINYINT", length = 1)
+    @Column(name = "TEAM_MODE", columnDefinition = "TINYINT", length = 1)
     private boolean teamMode;
 
-    @Column(name = "disabled", columnDefinition = "TINYINT", length = 1)
+    @Column(name = "DISABLED", columnDefinition = "TINYINT", length = 1)
     private boolean disabled;
 
     public Long getId() {

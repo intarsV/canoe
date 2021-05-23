@@ -32,15 +32,17 @@ const Group = () => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(addAgeGroup)} onChange={() => setInfoMessage({type: '', msg: ''})}>
-                <InputField id={'ageGroup'} label={'Age group'} pattern={text_regex_groups}
-                            register={register} errors={errors}/>
-                <button className="button" type="submit">Add age group</button>
-                <span className={infoMessage.type === 'error' ? "col-sm error-text" : "col-sm info-text"}>
+        <div className="col-md-6 col-sm-12 col-lg-3 top">
+            <div className="marginLeftRight text-right">
+                <form onSubmit={handleSubmit(addAgeGroup)} onChange={() => setInfoMessage({type: '', msg: ''})}>
+                    <InputField id={'ageGroup'} label={'Age group'} pattern={text_regex_groups}
+                                register={register} errors={errors}/>
+                    <span className={infoMessage.type === 'error' ? "col-sm error-text" : "col-sm info-text"}>
                     {infoMessage.msg}
                 </span>
-            </form>
+                    <button className="button" type="submit">Add age group</button>
+                </form>
+            </div>
             <ReactTable
                 minRows={1} noDataText={'No data found'} showPagination={false} data={ageGroup}
                 className={ageGroup.length < 10 ? '-striped -highlight table-format'
@@ -55,5 +57,6 @@ const Group = () => {
             />
         </div>
     )
-};
+}
+
 export default Group

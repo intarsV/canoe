@@ -7,23 +7,23 @@ import javax.persistence.*;
 public class Competitor {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "competitor_name")
+    @Column(name = "COMPETITOR_NAME")
     private String competitorName;
 
-    @Column(name = "birth_year")
+    @Column(name = "BIRTH_YEAR")
     private int birthYear;
 
-    @Column(name = "club")
+    @Column(name = "CLUB")
     private String club;
 
-    @Column(name = "country")
+    @Column(name = "COUNTRY")
     private String country;
 
-    @Column(name = "disabled", columnDefinition = "TINYINT", length = 1)
+    @Column(name = "DISABLED", columnDefinition = "TINYINT", length = 1)
     private boolean disabled;
 
     public Long getId() {

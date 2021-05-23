@@ -68,30 +68,33 @@ const Results = () => {
     }
 
     return (
-        <div className="card">
-            <form onSubmit={handleSubmit(getResults)} onChange={() => setInfoMessage({type: '', msg: ''})}>
-                <SelectFieldResultsExtra id={'eventName'} label={'Event'} list={event}
-                                         register={register} errors={errors}/>
+        <div className="col-md-6 col-sm-12 col-lg-12">
+            <div className="marginLeftRight text-right">
+                <form onSubmit={handleSubmit(getResults)} onChange={() => setInfoMessage({type: '', msg: ''})}>
+                    <SelectFieldResultsExtra id={'eventName'} label={'Event'} list={event}
+                                             register={register} errors={errors}/>
 
-                <SelectFieldResultsExtra id={'subEvent'} label={'SubEvent'}
-                                         list={subEvent.filter(e => e.eventFormat.id === resultData.eventFormat)}
-                                         required={false} register={register} errors={errors}/>
+                    <SelectFieldResultsExtra id={'subEvent'} label={'SubEvent'}
+                                             list={subEvent.filter(e => e.eventFormat.id === resultData.eventFormat)}
+                                             required={false} register={register} errors={errors}/>
 
-                <SelectFieldResultsExtra id={'boatClass'} label={'Boat class'} list={boatClass} required={false}
-                                         register={register} errors={errors}/>
-                <label className="label row-format">Team mode:</label>
-                <input type="checkbox" name="teamMode"
-                       onChange={() => {
-                           setResultData({...resultData, teamMode: !resultData.teamMode});
-                       }}
-                />
-                <SelectFieldResultsExtra id={'reportType'} label={'Report type'} list={reportTypes} register={register}
-                                         errors={errors}/>
-                <button className="button" type="submit">Results</button>
-                <span className={infoMessage.type === 'error' ? "col-md error-text" : "col-md info-text"}>
+                    <SelectFieldResultsExtra id={'boatClass'} label={'Boat class'} list={boatClass} required={false}
+                                             register={register} errors={errors}/>
+                    <label className="label row-format">Team mode:</label>
+                    <input type="checkbox" name="teamMode"
+                           onChange={() => {
+                               setResultData({...resultData, teamMode: !resultData.teamMode});
+                           }}
+                    />
+                    <SelectFieldResultsExtra id={'reportType'} label={'Report type'} list={reportTypes}
+                                             register={register}
+                                             errors={errors}/>
+                    <span className={infoMessage.type === 'error' ? "col-md error-text" : "col-md info-text"}>
                     {infoMessage.msg}
                 </span>
-            </form>
+                    <button className="button" type="submit">Results</button>
+                </form>
+            </div>
         </div>
     )
 }

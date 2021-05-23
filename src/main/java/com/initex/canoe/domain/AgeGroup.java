@@ -14,7 +14,7 @@ public class AgeGroup {
     @Column(name = "AGE_GROUP")
     private String ageGroup;
 
-    @Column(name = "disabled", columnDefinition = "TINYINT", length = 1)
+    @Column(name = "DISABLED", columnDefinition = "TINYINT", length = 1)
     private boolean disabled;
 
     public Long getId() {

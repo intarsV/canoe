@@ -7,36 +7,36 @@ import javax.persistence.*;
 public class EventRegistry {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "event_id")
+    @JoinColumn(name = "EVENT_ID")
     private Event event;
 
     @ManyToOne
-    @JoinColumn(name = "competitor_id")
+    @JoinColumn(name = "COMPETITOR_ID")
     private Competitor competitor;
 
-    @JoinColumn(name="team_mates")
+    @JoinColumn(name="TEAM_MATES")
     private String teamMates;
 
     @ManyToOne
-    @JoinColumn(name = "group_id")
+    @JoinColumn(name = "GROUP_ID")
     private AgeGroup ageGroup;
 
     @ManyToOne
-    @JoinColumn(name = "boat_class_id")
+    @JoinColumn(name = "BOAT_CLASS_ID")
     private BoatClass boatClass;
 
-    @Column(name = "bib")
+    @Column(name = "BIB")
     private int bib;
 
-    @Column(name = "team_mode", columnDefinition = "TINYINT", length = 1)
+    @Column(name = "TEAM_MODE", columnDefinition = "TINYINT", length = 1)
     private boolean teamMode;
 
-    @Column(name = "disabled", columnDefinition = "TINYINT", length = 1)
+    @Column(name = "DISABLED", columnDefinition = "TINYINT", length = 1)
     private boolean disabled;
 
     public Long getId() {

@@ -18,10 +18,10 @@ public class Event {
     @JoinColumn(name = "EVENT_FORMAT_ID")
     private EventFormat eventFormat;
 
-    @Column(name = "place_date")
+    @Column(name = "PLACE_DATE")
     private String placeDate;
 
-    @Column(name = "disabled", columnDefinition = "TINYINT", length = 1)
+    @Column(name = "DISABLED", columnDefinition = "TINYINT", length = 1)
     private boolean disabled;
 
     public Long getId() {

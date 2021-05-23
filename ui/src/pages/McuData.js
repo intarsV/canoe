@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 import {getList, getListWithParams, processErrorMessage} from "../common/Utils";
 import ReactTable from "react-table";
-import {Col, Row} from "reactstrap";
+import {Row} from "reactstrap";
 import Api from "../common/Api";
 import {RaceContext} from "../common/RaceContext";
 
@@ -65,77 +65,80 @@ const McuData = () => {
                     e.target.innerHTML = mcuData[cellInfo.index][cellInfo.column.id];
                     setMcuData(data);
                 }}
-            >{mcuData[cellInfo.index][cellInfo.column.id]}</div>
+            >{mcuData[cellInfo.index][cellInfo.column.id]}
+            </div>
         );
     }
 
     return (
-        <div className="card">
-            <Col>
-                <Row className="row-format">
-                    <ReactTable
-                        minRows={5} noDataText={'No data found'} showPagination={false}
-                        data={mcuData.filter(e => e.unitId === 1)}
-                        className={mcuData.length < 5 ? '-striped -highlight table-format'
-                            : '-striped -highlight table-format-large'}
-                        columns={[
-                            {
-                                className: "columnAlignCenter",
-                                id: 'bib',
-                                Header: "bib",
-                                accessor: 'bib',
-                                Cell: renderEditable
-                            },
-                            {
-                                className: "columnAlignCenter",
-                                id: 'timeStamp',
-                                Header: "timeStamp",
-                                accessor: 'timeStamp',
-                            },
-                            {
-                                className: "columnAlignCenter",
-                                id: 'accepted',
-                                Header: "accept",
-                                Cell: Cell => (
-                                    <input type="checkbox"
-                                           onClick={() => acceptRecord(Cell.original)}/>)
-                            }
-                        ]}
-                    />
-                    <ReactTable
-                        minRows={5} noDataText={'No data found'} showPagination={false}
-                        data={mcuData.filter(e => e.unitId === 2)}
-                        className={mcuData.length < 5 ? '-striped -highlight table-format'
-                            : '-striped -highlight table-format-large'}
-                        columns={[
-                            {
-                                className: "columnAlignCenter",
-                                id: 'bib',
-                                Header: "bib",
-                                accessor: 'bib',
-                            },
-                            {
-                                className: "columnAlignCenter",
-                                id: 'timeStamp',
-                                Header: "timeStamp",
-                                accessor: 'timeStamp',
-                            },
-                            {
-                                className: "columnAlignCenter",
-                                id: 'accepted',
-                                Header: "accepted",
-                                accessor: 'accepted',
-                                Cell: Cell => (
-                                    <input type="checkbox"
-                                           onClick={() => acceptRecord(Cell.original)}/>)
-                            }
-                        ]}
-                    />
-                </Row>
-            </Col>
-            <span className={infoMessage.type === 'error' ? "col-sm error-text" : "col-sm info-text"}>
-                    {infoMessage.msg}
-                </span>
+        <div>
+            <Row>
+                <ReactTable
+                    minRows={5} noDataText={'No data found'} showPagination={false}
+                    data={mcuData.filter(e => e.unitId === 1)}
+                    className="-striped -highlight table-format-large"
+                    columns={[
+                        {
+                            className: "columnAlignCenter",
+                            width: 30,
+                            id: 'bib',
+                            Header: "bib",
+                            accessor: 'bib',
+                            Cell: renderEditable
+                        },
+                        {
+                            className: "columnAlignCenter",
+                            width: 70,
+                            id: 'timeStamp',
+                            Header: "timeStamp",
+                            accessor: 'timeStamp',
+                        },
+                        {
+                            className: "columnAlignCenter",
+                            width: 50,
+                            id: 'accepted',
+                            Header: "accept",
+                            Cell: Cell => (
+                                <input type="checkbox"
+                                       onClick={() => acceptRecord(Cell.original)}/>)
+                        }
+                    ]}
+                />
+                <ReactTable
+                    minRows={5} noDataText={'No data found'} showPagination={false}
+                    data={mcuData.filter(e => e.unitId === 2)}
+                    className="-striped -highlight table-format-large"
+                    columns={[
+                        {
+                            className: "columnAlignCenter",
+                            width: 30,
+                            id: 'bib',
+                            Header: "bib",
+                            accessor: 'bib',
+                        },
+                        {
+                            className: "columnAlignCenter",
+                            width: 70,
+                            id: 'timeStamp',
+                            Header: "timeStamp",
+                            accessor: 'timeStamp',
+                        },
+                        {
+                            className: "columnAlignCenter",
+                            width: 50,
+                            id: 'accepted',
+                            Header: "accept",
+                            accessor: 'accepted',
+                            Cell: Cell => (
+                                <input type="checkbox"
+                                       onClick={() => acceptRecord(Cell.original)}/>)
+                        }
+                    ]}
+                />
+            </Row>
+            {/*<span className={infoMessage.type === 'error' ? "col-sm error-text" : "col-sm info-text"}>*/}
+            {/*    {infoMessage.msg}*/}
+            {/*</span>*/}
         </div>
     )
 };
