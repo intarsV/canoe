@@ -2,37 +2,34 @@ node {
 
     def mvnHome = tool 'maven_3.6.3';
 
-    stages {
+
         stage ('Checking java version') {
-            steps {
                     sh 'java -version'
-            }
+
         }
         stage ('maven version') {
-            steps {
+
                     sh '${mvnHome}/bin/mvn -version'
-            }
+
         }
         stage ('build app test') {
-            steps {
+
                     sh '${mvnHome}/bin/mvn clean install -DskipTests=true '
-            }
+
         }
 
-        stage ('docker image build')
-        {
-            steps {
+        stage ('docker image build')        {
+
 
                         sh '${mvnHome}/bin/mvn dockerfile:build'
 
-                  }
+
           }
           stage ('docker image push to Docker Hub') {
-            steps {
+
                     sh '${mvnHome}/bin/mvn dockerfile:push'
-            }
+
         }
-    }
 }
 
 
