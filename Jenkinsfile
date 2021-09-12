@@ -6,20 +6,25 @@ node {
         git 'https://github.com/intarsV/canoe'
     }
 
-  stage('Compile&Test') {
+    stage('Compile&Test') {
          sh "${mvnHome}/bin/mvn --version"
-     }
+    }
 
-      stage ('build app test') {
-                         sh '${mvnHome}/bin/mvn clean install -DskipTests=true '
-             }
-             stage ('docker image build'){
-                             sh '${mvnHome}/bin/mvn dockerfile:build'
+    stage('Compile&TestNEXT') {
+         sh "${mvnHome}/bin/mvn clean compile test"
+    }
 
-               }
-               stage ('docker image push to Docker Hub') {
-                         sh '${mvnHome}/bin/mvn dockerfile:push'
-             }
+    stage ('build app test') {
+         sh '${mvnHome}/bin/mvn clean install -DskipTests=true '
+    }
+
+//     stage ('docker image build'){
+//          sh '${mvnHome}/bin/mvn dockerfile:build'
+//     }
+//
+//     stage ('docker image push to Docker Hub') {
+//          sh '${mvnHome}/bin/mvn dockerfile:push'
+//     }
 
 
 
