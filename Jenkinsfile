@@ -1,5 +1,8 @@
 pipeline {
     agent any
+
+    def mvnHome = tool 'maven_3.6.3';
+
     stages {
         stage ('Checking java version') {
             steps {
@@ -8,12 +11,12 @@ pipeline {
         }
         stage ('maven version') {
             steps {
-                    sh 'mvn -version'
+                    sh '${mvnHome}/bin/mvn -version'
             }
         }
         stage ('build app test') {
             steps {
-                    sh 'mvn clean install -DskipTests=true '
+                    sh '${mvnHome}/bin/mvn clean install -DskipTests=true '
             }
         }
 
@@ -21,13 +24,13 @@ pipeline {
         {
             steps {
 
-                        sh 'mvn dockerfile:build'
+                        sh '${mvnHome}/bin/mvn dockerfile:build'
 
                   }
           }
           stage ('docker image push to Docker Hub') {
             steps {
-                    sh 'mvn dockerfile:push'
+                    sh '${mvnHome}/bin/mvn dockerfile:push'
             }
         }
     }
