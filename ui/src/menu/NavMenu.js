@@ -20,7 +20,7 @@ const NavMenu = () => {
     return (
         <>
             {width > 1395 ?
-                <div className="col-lg-2 col-md-2 col-xl-2 menu-side">
+                <div className="col-lg-12 col-md-12 col-xl-12 menu-side">
                     <h3 className="text-right logo-text">Initex timing</h3>
                     <h6 className="text-right logo-text">v1.0</h6>
                     <div>

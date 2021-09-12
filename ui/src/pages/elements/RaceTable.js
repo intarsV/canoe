@@ -148,7 +148,7 @@ const RaceTable = ({setInfoMessage, editMode}) => {
     return (
         <ReactTable
             minRows={1} noDataText={'No data found'} showPagination={false} data={raceData}
-            className={raceData.length < 10 ? '-striped -highlight table-format'
+            pageSize = {raceData.length} className={raceData.length < 10 ? '-striped -highlight table-format'
                 : '-striped -highlight table-format-large'}
             columns={
                 generateColumnList()

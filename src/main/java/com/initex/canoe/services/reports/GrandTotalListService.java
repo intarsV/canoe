@@ -4,6 +4,7 @@ import com.initex.canoe.domain.result.RaceResultList;
 import com.initex.canoe.domain.result.RaceStageResult;
 import com.initex.canoe.dto.ResultQuery;
 
+import com.initex.canoe.services.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,5 +35,16 @@ public class GrandTotalListService {
             return processor.getList(q);
         }
         return Collections.emptyList();
+    }
+
+    public List<RaceResultList> executeSumMergeTotal(ResultQuery q) {
+        List<RaceResultList> results = new ArrayList<>();
+        if (q.getEventName() != null) {
+            for (String boatClass : Constants.getBoatClass()) {
+                q.setBoatClass(boatClass);
+                results.addAll(processor.getList(q));
+            }
+        }
+        return results;
     }
 }

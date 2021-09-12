@@ -51,7 +51,7 @@ const RaceProcessing = () => {
     return (
         <div className="top" onChange={() => setInfoMessage({type: '', msg: ''})}>
             <Row>
-                <Col className="text-right col-lg-4">
+                <Col className="text-right col-lg-3">
                     <SelectFieldRaceExtra id={'eventName'} label={'Event'} list={event} register={register}
                                           errors={errors}/>
                     <SelectFieldRaceExtra id={'subEvent'} label={'SubEvent'}
@@ -83,7 +83,7 @@ const RaceProcessing = () => {
                 <Col className="align-self-center" lg="4" md="4">
                     <McuData/>
                 </Col>
-                <Col className="align-self-center" lg="3.5" md="3.5">
+                <Col className="align-self-center" lg="3" md="3">
                     <Results/>
                 </Col>
             </Row>

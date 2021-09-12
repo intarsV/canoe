@@ -69,6 +69,14 @@ public class ResultsService {
                 final List<RaceStageResult> totalsListGroup = grandTotalListService.execute(q);
                 reportName = "GrandTotalGroup";
                 return getPdf(totalsListGroup, reportName);
+            case "GrandTotalMerged":
+                final List<RaceResultList> totalSumMergeList = grandTotalListService.executeSumMergeTotal(q);
+                reportName = "GrandTotalMergedList";
+                return getPdf(totalSumMergeList, reportName);
+            case "TeamTotal":
+                final List<RaceStageResult> teamResultsList = stageResultsService.executeTeams(q);
+                reportName =  "TeamStageResults";
+                return getPdf(teamResultsList, reportName);
             default:
                 //get initial StartList;
         }

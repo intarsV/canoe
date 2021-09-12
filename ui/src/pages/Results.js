@@ -14,7 +14,8 @@ const Results = () => {
     const [subEvent, setSubEvent] = useState([]);
     const [boatClass, setBoatClass] = useState([]);
     const reportTypes = [{id: 1, reportType: "StartList"}, {id: 2, reportType: "HeatResult"},
-        {id: 3, reportType: "GrandTotal"}, {id: 4, reportType: "GrandTotalGroups"}]
+        {id: 3, reportType: "GrandTotal"}, {id: 4, reportType: "GrandTotalGroups"},
+        {id: 5, reportType: "GrandTotalMerged"}, {id: 6, reportType: "TeamTotal"}]
 
     useEffect(() => {
         getList('/events', setEvent, setInfoMessage);

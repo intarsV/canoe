@@ -68,13 +68,13 @@ public class GrandTotalListConverter {
 
     public int getBoatClassIndex(EventRegistry e) {
         switch (e.getBoatClass().getBoatClass()) {
-            case "C1W":
+            case "C1 Women":
                 return 1;
-            case "C1M":
+            case "C1 Men":
                 return 2;
-            case "K1W":
+            case "K1 Women":
                 return 3;
-            case "K1M":
+            case "K1 Men":
                 return 4;
             default:
                 throw new CanoeException("Nu be, čo takoje!");

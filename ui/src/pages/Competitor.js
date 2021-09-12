@@ -100,7 +100,7 @@ const Competitor = () => {
                 </form>
             </div>
             <ReactTable
-                minRows="1" pageSize="1000" noDataText={'No data found'} showPagination={false} data={competitor}
+                minRows="1" noDataText={'No data found'} showPagination={competitor.length > 20} data={competitor}
                 className={competitor.length < 10 ? '-striped -highlight table-format'
                     : '-striped -highlight table-format-large'}
                 getTdProps={(state, rowInfo) => {

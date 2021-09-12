@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public interface CompetitorRepository extends JpaRepository<Competitor, Long> {
 
-    List<Competitor> findAllByDisabled(final boolean disabled);
+    List<Competitor> findAllByDisabledOrderByCompetitorNameAsc(final boolean disabled);
 
     @Transactional
     @Modifying

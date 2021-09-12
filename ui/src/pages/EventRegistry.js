@@ -176,9 +176,9 @@ const EventRegistry = () => {
                                }}/>
                     </div>
                     {currentId &&
-                    <div className="row row-format">
+                    <div className="text-right">
                         <label className="marginLeftRight" htmlFor="disabled">remove : </label>
-                        <input name="disabled" type="checkbox" autoComplete='off'
+                        <input name="disabled" type="checkbox" autoComplete='off' className=" marginLeft"
                                ref={register()}
                                onClick={() => {
                                    setInfoMessage({type: '', msg: ''});
@@ -194,7 +194,8 @@ const EventRegistry = () => {
             </div>
             <ReactTable
                 minRows={1} noDataText={'No data found'} showPagination={false} data={eventRegistry}
-                className="-striped -highlight table-format-large"
+                className={eventRegistry.length < 10 ? '-striped -highlight table-format'
+                    : '-striped -highlight table-format-large'}
                 getTdProps={(state, rowInfo) => {
                     return {
                         onClick: () => {

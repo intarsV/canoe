@@ -10,7 +10,7 @@ public class Constants {
     public static final String DATABASE_READ_ERROR = "Database read error";
     public static final String DUPLICATE_DATA_EXISTS = "Duplicate data exists!";
     public static final String NO_SUCH_RECORD_ERROR = "No such record error";
-    public static final List<String> BOAT_CLASS = Arrays.asList("C1W", "C1M", "K1W", "K1M");
+    public static final List<String> BOAT_CLASS = Arrays.asList("C1 Women", "C1 Men", "K1 Women", "K1 Men");
     public static final String HEAT_1 = "Heat1";
     public static final String HEAT_2 = "Heat2";
     public static final String SEMI_FINAL = "Semi-final";

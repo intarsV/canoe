@@ -19,7 +19,7 @@ public class EventRegistry {
     @JoinColumn(name = "COMPETITOR_ID")
     private Competitor competitor;
 
-    @JoinColumn(name="TEAM_MATES")
+    @Column(name="TEAM_MATES")
     private String teamMates;
 
     @ManyToOne

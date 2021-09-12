@@ -60,18 +60,19 @@ const McuData = () => {
                 onBlur={e => {
                     const data = [...mcuData];
                     if (!isNaN(parseInt(e.target.innerHTML))) {
-                        data[cellInfo.index][cellInfo.column.id] = parseInt(e.target.innerHTML);
+                        data[cellInfo.original.id-1][cellInfo.column.id] = parseInt(e.target.innerHTML);
                     }
                     e.target.innerHTML = mcuData[cellInfo.index][cellInfo.column.id];
                     setMcuData(data);
                 }}
-            >{mcuData[cellInfo.index][cellInfo.column.id]}
+            >{cellInfo.original.bib}
             </div>
         );
     }
 
     return (
-        <div>
+        <div className="col-md-6 col-sm-12 col-lg-12">
+            <div className="marginLeftRight text-right">
             <Row>
                 <ReactTable
                     minRows={5} noDataText={'No data found'} showPagination={false}
@@ -115,6 +116,7 @@ const McuData = () => {
                             id: 'bib',
                             Header: "bib",
                             accessor: 'bib',
+                            Cell: renderEditable
                         },
                         {
                             className: "columnAlignCenter",
@@ -139,6 +141,7 @@ const McuData = () => {
             <span className={infoMessage.type === 'error' ? "col-sm error-text" : "col-sm info-text"}>
                 {infoMessage.msg}
             </span>
+            </div>
         </div>
     )
 };

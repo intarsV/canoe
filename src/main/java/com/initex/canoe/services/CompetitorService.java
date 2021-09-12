@@ -27,7 +27,7 @@ public class CompetitorService {
 
     public List<Competitor> getCompetitors() {
         try {
-            return repository.findAllByDisabled(false);
+            return repository.findAllByDisabledOrderByCompetitorNameAsc(false);
         } catch (Exception e) {
             throw new CanoeException(DATABASE_READ_ERROR, e);
         }
