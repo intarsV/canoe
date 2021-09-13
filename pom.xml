@@ -124,6 +124,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.2.0</version>
 				<executions>
 					<execution>
 						<id>copy react app to static folder of spring app target folder</id>
@@ -134,6 +135,7 @@
 							</goal>
 						</goals>
 						<configuration>
+							<encoding>UTF-8</encoding>
 							<outputDirectory>target/classes/static</outputDirectory>
 							<resources>
 								<resource>
