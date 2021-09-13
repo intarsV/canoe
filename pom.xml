@@ -22,7 +22,7 @@
 		<repository>
 			<id>jasper-3rd-party</id>
 			<name>Jasper3rdParty</name>
-			<url>http://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/</url>
+			<url>https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/</url>
 		</repository>
 	</repositories>
 
